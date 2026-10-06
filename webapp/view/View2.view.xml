@@ -1,0 +1,29 @@
+<mvc:View
+    controllerName="finalmrp.finalmrp.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:layout="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page2" title="Detail Screen" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <VBox id="vbox2" class="sapUiMediumMargin">
+                <Title id="title2" text="Style Overview: {StyleId}" titleStyle="H1" class="sapUiSmallMarginBottom" />
+                
+                <layout:SimpleForm id="simpleForm2" editable="false" layout="ResponsiveGridLayout" title="Item Specification Details">
+                    <layout:content>
+                        <Label id="seasonCodeLabel" text="Season Code" />
+                        <Text id="seasonCodeText" text="{Season}" />
+
+                        <Label id="brandNameLabel" text="Brand Name" />
+                        <Text id="brandNameText" text="{Brand}" />
+
+                        <Label id="classificationCategoryLabel" text="Classification Category" />
+                        <Text id="classificationCategoryText" text="{Category}" />
+
+                        <Label id="productExtendedDescriptionLabel" text="Product Extended Description" />
+                        <Text id="productExtendedDescriptionText" text="{ProductDescription}" />
+                    </layout:content>
+                </layout:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

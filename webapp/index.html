@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FInal Mrp</title>
+    <style>
+        html,
+        body,
+        body>div,
+        #container,
+        #container-uiarea {
+            height: 100%;
+        }
+
+        #contentt {
+            position: absolute;
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            font-size: 24px;
+            font-weight: bold;
+            color: #c91414;
+        }
+
+        #text {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #c91414;
+        }
+    </style>
+    <script id="sap-ui-bootstrap" src="resources/sap-ui-core.js" data-sap-ui-theme="sap_horizon"
+        data-sap-ui-compat-version="edge" data-sap-ui-resource-roots='{
+            "finalmrp.finalmrp": "./"
+        }' data-sap-ui-on-init="module:sap/ui/core/ComponentSupport" data-sap-ui-async="true"
+        data-sap-ui-frame-options="trusted"></script>
+</head>
+
+<body class="sapUiBody sapUiSizeCompact" id="content">
+    <div data-sap-ui-component data-name="finalmrp.finalmrp" data-id="container"
+        data-settings='{"id" : "finalmrp.finalmrp"}' data-handle-validation="true"></div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    
+    <!-- We give it an ID so we can interact with it in our controller -->
+    <Dialog id="myInfoDialog" title="Important Notification">
+        <content>
+            <VBox id="vbox" class="sapUiSmallMargin">
+                <Text id="text" text="This dialog was loaded dynamically using a reusable XML Fragment!" />
+            </VBox>
+        </content>
+        
+        <!-- The footer button loops back to a handler in the parent controller -->
+        <beginButton>
+            <Button id="okButton" text="OK" type="Emphasized" press="onCloseDialog" />
+        </beginButton>
+    </Dialog>
+    
+</core:FragmentDefinition>

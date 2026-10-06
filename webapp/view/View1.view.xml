@@ -1,0 +1,135 @@
+<mvc:View controllerName="finalmrp.finalmrp.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Panel id="simpleFormPanel" class="sapUiResponsiveMargin">
+            <headerToolbar>
+                <Toolbar id="styleFormToolbar">
+                    <Title id="styleFormTitle" text="New Style" />
+                    <!-- <ToolbarSpacer id="styleFormToolbarSpacer"/> -->
+                    <Button id="clearStyleFormButton" text="Clear" icon="sap-icon://success"
+                        type="Success" press="onClearStyleForm" />
+                    <Button id="navigateToView2Button" text="Go to Second Screen"
+                        press="onNavigateToView2" type="Emphasized" />
+                    <Button
+                        id="openInfoDialogButton"
+                        text="Open Info Dialog"
+                        press="onOpenDialog"
+                        type="Accept"
+                        class="" />
+
+                </Toolbar>
+            </headerToolbar>
+            <content>
+                <VBox id="vbox1" class="sapUiMediumMargin">
+
+                    <!-- 1. PULL DATA: Display the data using a Text control -->
+                    <Title id="userProfileTitle" text="User Profile" titleStyle="H2"
+                        class="sapUiSmallMa rginBottom" />
+
+                    <!-- This pulls the value from 'CurrentUser' -->
+                    <Text id="welcomeText" text="Welcome back, {/CurrentUser}!"
+                        class="sapUiSmallMarginBottom" />
+
+                    <!-- This pulls the value from 'AppStatus' -->
+                    <Text id="appStatusText" text="Application Status: {/AppStatus}"
+                        class="sapUiMediumMarginBottom" />
+
+                    <!-- 2. TWO-WAY BINDING: Bind the data to an Input field -->
+                    <Label id="currentUserLabel" text="Change your username here:" />
+                    <Input id="currentUserInput" value="{/CurrentUser}" width="300px" />
+
+                    <Text id="companyNameText" text="Company Name: {customer>/Company}" />
+
+                    <!-- 2. COMPOSITE BINDING (Calculated Field) -->
+                    <!-- We mix static text, a default model path, and a named model path all in one
+                    line! -->
+                    <Text id="logText"
+                        text="Log: User {/CurrentUser} is currently working on-site at {customer>/Company} in {customer>/Region}."
+                        class="sapUiMediumMarginTop" />
+
+                    <VBox id="styleFormVBox" class="sapUiMediumMargin">
+
+                        <!-- Simple Form bound to a local named draft model -->
+                        <layout:SimpleForm id="styleCreationForm" title="Style Creation Form"
+                            editable="true">
+                            <layout:content>
+                                <Label id="newStyleIdLabel" text="New Style ID" />
+                                <Input id="newStyleIdInput" value="{draft>/NewStyleID}"
+                                    placeholder="e.g., ST1003" />
+
+                                <Label id="seasonClassificationLabel" text="Season Classification" />
+                                <Input id="seasonClassificationInput" value="{draft>/NewSeason}"
+                                    placeholder="e.g., SS27" />
+
+                                <Label id="styleDescriptionLabel" text="Style Description" />
+                                <Input id="styleDescriptionInput" value="{draft>/NewDesc}"
+                                    placeholder="Enter garment profile details..." />
+                            </layout:content>
+                        </layout:SimpleForm>
+
+                        <!-- Trigger Save Action Button -->
+                        <Button id="saveDataButton" text="Save Data to Server" press="onSaveDraft"
+                            type="Emphasized" class="sapUiSmallMarginTop" />
+
+                    </VBox>
+
+                </VBox>
+                <form:SimpleForm id="styleSimpleForm" editable="true" layout="ResponsiveGridLayout"
+                    columnsXL="2" columnsL="2" columnsM="1"
+                    labelSpanXL="3" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+                    adjustLabelSpan="false" singleContainerFullSize="false">
+                    <core:Title id="styleIdentityGroup" text="Style Identity" />
+                    <Label id="styleIdLabel" text="Style ID" />
+                    <Input id="styleIdInput" />
+                    <Label id="seasonLabel" text="Season" />
+                    <Input id="seasonInput" />
+                    <Label id="styleColorLabel" text="Style Color" />
+                    <Input id="styleColorInput" />
+                    <core:Title id="styleDetailsGroup" text="Description &amp; Classification" />
+                    <Label id="descriptionLabel" text="Product Description" />
+                    <Input id="descriptionInput" />
+                    <Label id="categoryLabel" text="Category" />
+                    <Input id="categoryInput" />
+                    <Label id="brandLabel" text="Brand" />
+                    <Input id="brandInput" />
+                </form:SimpleForm>
+            </content>
+        </Panel>
+        <Panel id="formPanel" headerText="Style Details" class="sapUiResponsiveMargin">
+            <Table id="stylesTable" items="{/ZC_BINDRA_HDR}" mode="SingleSelectMaster">
+                <columns>
+                    <Column id="styleIdColumn">
+                        <Text id="styleIdHeader" text="Style ID" />
+                    </Column>
+                    <Column id="seasonColumn">
+                        <Text id="seasonHeader" text="Season" />
+                    </Column>
+                    <Column id="descriptionColumn">
+                        <Text id="descriptionHeader" text="Description" />
+                    </Column>
+                    <Column id="categoryColumn">
+                        <Text id="categoryHeader" text="Category" />
+                    </Column>
+                    <Column id="statusColumn">
+                        <Text id="statusHeader" text="Status" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="styleRow" type="Navigation" press="onRowPress">
+                        <cells>
+                            <Text id="styleIdCell" text="{StyleId}" />
+                            <Text id="seasonCell" text="{Season}" />
+                            <Text id="descriptionCell" text="{ProductDescription}" />
+                            <Text id="categoryCell" text="{Category}" />
+                            <Text id="statusCell" text="{Status}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+    </Page>
+</mvc:View>
