@@ -896,6 +896,8 @@ sap.ui.define([
             var bNewOrder = !bCurrentOrder;
             oLocalModel.setProperty("/SortDescending", bNewOrder);
 
+            
+
             // B. Instantiate a Sorter object targeting the 'Season' database property
             // The second parameter specifies true for descending order, false for ascending order
             var oSeasonSorter = new Sorter("Season", bNewOrder);
